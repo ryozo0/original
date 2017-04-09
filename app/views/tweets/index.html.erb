@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+    <%= notice %>
+    
+    <h1>一覧</h1>
+    <% @tweets.each do  |tweet| %>
+    <p>本文:<%= tweet.content %></p>
+    <%= link_to "編集する", edit_tweet_path(tweet.id) %>
+    <%= link_to "削減する", tweet_path(tweet.id), method: :delete, data: { confirm: '本当に削減していいですか？' } %>
+    <% end %>
+    <br>
+    <%= link_to "投稿する", new_tweet_path %>
+  </div>
+</div>
